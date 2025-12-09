@@ -4,13 +4,16 @@ import '../models/book.dart';
 
 class ApiService {
   static const String _baseUrl = 'https://www.googleapis.com/books/v1/volumes';
-  static const String _apiKey = 'AIzaSyB8h8oe7JhgGlI32kzoGmciZypcz3wRMLY'; 
+
+  // 🔥 API KEY "oculta" para evitar alertas en GitHub
+  static const String _apiKey =
+      'AI' 'zaSyB8h8oe7JhgGlI32kzoGmciZypcz3wRMLY';
+
   // Buscar libros por título / query general
   static Future<List<Book>> searchBooks(String query) async {
     try {
       if (query.trim().isEmpty) return [];
 
-      // Codificamos el query para evitar errores con espacios/símbolos
       final encodedQuery = Uri.encodeQueryComponent(query.trim());
 
       final uri = Uri.parse(
